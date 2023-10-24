@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IProductService, ProductDFService>();
+builder.Services.AddScoped<IHomeService, HomeService>();
 
 var app = builder.Build();
 
