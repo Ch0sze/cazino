@@ -41,3 +41,22 @@ body {
 .login-logout-card .card-body {
     padding: 10px 20px;
 }
+
+.bg-color {
+    background-color: #33BBC5;
+}
+
+.custom-button {
+    background-color: #3D30A2;
+    border-color: #3D30A2;
+    transition: background-color 0.3s ease;
+}
+
+    .custom-button:hover {
+        background-color: #363062; /* Darker color when hovered */
+        border-color: #363062;
+    }
+
+.custom-text {
+    color: #3D30A2;
+}

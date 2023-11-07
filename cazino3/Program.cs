@@ -7,13 +7,19 @@ var connectionString = builder.Configuration.GetConnectionString("DBcazinoContex
 builder.Services.AddDbContext<DBcazinoContext>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<cazinoUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<cazinoUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<DBcazinoContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddRazorPages();
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireUppercase = true;
+    options.Password.RequireNonAlphanumeric = false;
+});
 
 var app = builder.Build();
 
