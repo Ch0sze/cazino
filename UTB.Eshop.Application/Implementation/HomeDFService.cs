@@ -9,19 +9,13 @@ using UTB.Eshop.Infrastructure.Database;
 
 namespace UTB.Eshop.Application.Implementation
 {
-    public class HomeService : IHomeService
+    public class HomeDFService : IHomeService
     {
-        EshopDbContext _eshopDbContext;
-        public HomeService(EshopDbContext eshopDbContext)
-        {
-            _eshopDbContext = eshopDbContext;
-        }
-
         public CarouselProductViewModel GetHomeIndexViewModel()
         {
             CarouselProductViewModel viewModel = new CarouselProductViewModel();
-            viewModel.Products = _eshopDbContext.Products.ToList();
-            viewModel.Carousels = _eshopDbContext.Carousels.ToList();
+            viewModel.Products = DatabaseFake.Products;
+            viewModel.Carousels = DatabaseFake.Carousels;
             return viewModel;
         }
     }
