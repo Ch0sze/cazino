@@ -2,10 +2,13 @@
 using UTB.Eshop.Application.Abstraction;
 using UTB.Eshop.Domain.Entities;
 using UTB.Eshop.Infrastructure.Database;
+using Microsoft.AspNetCore.Authorization;
+using UTB.Eshop.Infrastructure.Identity.Enums;
 
 namespace UTB.Eshop.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = nameof(Roles.Admin) + ", " + nameof(Roles.Manager))]
     public class ProductController : Controller
     {
         IProductService _productService;
