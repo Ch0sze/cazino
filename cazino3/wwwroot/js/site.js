@@ -1,33 +1,58 @@
-﻿
-
-const svgWidth = 2500;
+﻿const svgWidth = 2410;
 const rectWidth = 100;
-const moveDistance = 3;
+const moveDistance = 10;
+let test = 0;
+let value = 0;
 
-const rects = document.querySelectorAll("rect");
+const rects = document.querySelectorAll('rect');
+let animationStarted = false;
+let requestId;
 
 function moveRectangles() {
-    rects.forEach((rect) => {
-        let currentX = parseInt(rect.getAttribute('x'));
-
-        if (currentX + rectWidth > svgWidth) {
-            rect.setAttribute('x', - rectWidth);
-        } else {
+    if (test <= value) {
+        rects.forEach((rect) => {
+            let currentX = parseInt(rect.getAttribute('x'));
             const newX = currentX + moveDistance;
-            rect.setAttribute('x', newX);
-        }
-    });
+
+            if (newX >= svgWidth) {
+                rect.setAttribute('x', -rectWidth);
+            } else {
+                rect.setAttribute('x', newX);
+            }
+        });
+        test = test + moveDistance;
+        requestId = requestAnimationFrame(moveRectangles); // Continue the animation loop
+    } else {
+        animationStarted = false;
+        test = 0;
+        setTimeout(() => {
+            value = result();
+            animateFlow(); // Restart the animation loop after the delay
+        }, 5000);
+    }
 }
 
-// Continuously move rectangles in a smooth loop
 function animateFlow() {
-    requestAnimationFrame(animateFlow);
-    moveRectangles();
+    requestId = requestAnimationFrame(moveRectangles); // Start the animation loop
 }
 
-function calculateResult() {
-
+function startAnimation() {
+    if (!animationStarted) {
+        value = result(); // Set value to the result of the function
+        animateFlow();
+        animationStarted = true;
+    }
 }
 
-// Start the animation
-animateFlow();
+const availableAngles = [
+    0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400
+];
+
+function result() {
+    const randomNumber = availableAngles[Math.floor(Math.random() * availableAngles.length)];
+    console.log(svgWidth + randomNumber);
+    return svgWidth + randomNumber;
+}
+
+startAnimation();
+
