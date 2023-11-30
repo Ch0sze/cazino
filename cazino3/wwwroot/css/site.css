@@ -60,3 +60,7 @@ body {
 .custom-text {
     color: #3D30A2;
 }
+
+rect {
+    transition: transform 2s linear; /* Adding transition for smooth movement */
+}
