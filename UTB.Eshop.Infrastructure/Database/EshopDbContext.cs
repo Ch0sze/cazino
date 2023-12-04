@@ -8,6 +8,7 @@ using UTB.Eshop.Domain.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using UTB.Eshop.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
+using UTB.Eshop.Web.Models.Database.Configuration;
 
 namespace UTB.Eshop.Infrastructure.Database
 {
@@ -45,6 +46,13 @@ namespace UTB.Eshop.Infrastructure.Database
             //and finally, connect the users with the roles
             modelBuilder.Entity<IdentityUserRole<int>>().HasData(adminUserRoles);
             modelBuilder.Entity<IdentityUserRole<int>>().HasData(managerUserRoles);
+
+
+            //configuration of User entity using IUser interface property inside Order entity
+            modelBuilder.Entity<Order>().HasOne<User>(e => e.User as User);
+
+            //configure DateTimeCreated for Order entity from configuration class
+            modelBuilder.ApplyConfiguration<Order>(new OrderConfiguration_MySQL());
         }
     }
 }
