@@ -31,5 +31,11 @@ public class cazinoUser : IdentityUser
     [Required]
     [Column(TypeName = "nvarchar(9)")]
     public string PhoneNumber { get; set; }
+
+
+    [PersonalData]
+    [Required]
+    [Column(TypeName = "DECIMAL(20, 0)DEFAULT 0")]
+    public int WalletBalance { get; set; }
 }
 
