@@ -64,3 +64,66 @@ body {
 rect {
     transition: transform 2s linear; /* Adding transition for smooth movement */
 }
+
+.line {
+    width: 3px;
+    height: 80px;
+    background-color: slategrey;
+    margin: auto; /* Center the div horizontally and vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*WHEEL*/
+.roulette_wheel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+    .roulette_wheel .selector {
+        width: 3px;
+        background: grey;
+        left: 50%;
+        height: 100%;
+        transform: translate(-50%,0%);
+        position: absolute;
+        z-index: 2;
+    }
+
+    .roulette_wheel .wheel {
+        display: flex;
+    }
+            .roulette_wheel .wheel .card {
+                height: 75px;
+                width: 75px;
+                margin: 3px;
+                border-radius: 8px;
+                border-bottom: 3px solid rgba(0,0,0,0.2);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 1.5em;
+            }
+
+.shadow {
+    width: 100%;
+    margin: 0 auto 10px auto;
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+.shadow .stop_watch_bar {
+    width: 100%;
+    height: 8px;
+    margin: 50px 0 50px 0;
+    background-color: #00cc99;
+    border-radius: 5px;
+    transition-duration: 0.5s;
+    transition-property: background-color;
+}

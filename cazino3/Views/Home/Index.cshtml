@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <div class="text-center">
     @* <p>User ID : @ViewData["userID"]</p>
@@ -8,48 +9,13 @@
     </div> *@
 </div>
 
-<div id="roulette_container">
-    <div id="roulette_wheel">
-        <svg >
-            <rect x="50%" y="10" width="3" height="120" fill="black"></rect>
-        </svg>
-        <div id="wheel">
-            <svg id="wheelRects" width="1300" height="100">
-                <rect x=" 0" y="10" width="80" height="80" fill="red" /> 
-                <rect x="100" y="10" width="80" height="80" fill="#e6b800" />
-                <rect x="200" y="10" width="80" height="80" fill="green" />
-                <rect x="300" y="10" width="80" height="80" fill="#e6b800" />
-                <rect x="400" y="10" width="80" height="80" fill="blue" />
-                <rect x="500" y="10" width="80" height="80" fill="#e6b800" />
-                <rect x="600" y="10" width="80" height="80" fill="green" />
-                <rect x="700" y="10" width="80" height="80" fill="#e6b800" />
-                <rect x="800" y="10" width="80" height="80" fill="purple" />
-                <rect x="900" y="10" width="80" height="80" fill="#e6b800" />
-                <rect x="1000" y="10" width="80" height="80" fill="green" />
-                <rect x="1100" y="10" width="80" height="80" fill="#e6b800" />
-                <rect x="1200" y="10" width="80" height="80" fill="blue" />
-                <rect x="1300" y="10" width="80" height="80" fill="#e6b800" />
-                <rect x="1400" y="10" width="80" height="80" fill="blue" />
-                <rect x="1500" y="10" width="80" height="80" fill="green" />
-                <rect x="1600" y="10" width="80" height="80" fill="#e6b800" />
-                <rect x="1700" y="10" width="80" height="80" fill="purple" />
-                <rect x="1800" y="10" width="80" height="80" fill="#e6b800" />
-                <rect x="1900" y="10" width="80" height="80" fill="green" />
-                <rect x="2000" y="10" width="80" height="80" fill="#e6b800" />
-                <rect x="2100" y="10" width="80" height="80" fill="blue" />
-                <rect x="2200" y="10" width="80" height="80" fill="#e6b800" />
-                <rect x="2300" y="10" width="80" height="80" fill="green" />
-                <rect x="2400" y="10" width="80" height="80" fill="#e6b800" />
-            </svg>
-        </div>
-        @* <button onclick="calculateResult()">Spin</button> *@
-        <div id="spin_cooldown_container">
-            <div id="spin_cooldown"></div>
-        </div>
-        @* <div id="color_result_container">
-            <div id="color_result"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 488.98 488.98" style="enable-background:new 0 0 488.98 488.98;" xml:space="preserve"><g><g><path id="number" d="M409.49,485.75l-165-80.9l-165,80.9c-25.3,12.4-52.4-13.1-41.6-39.1l178.5-427.9c10.4-25,45.8-25,56.3,0l178.4,427.9C461.89,472.55,434.79,498.15,409.49,485.75z" /></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg></div>
-        </div> *@
-        <div id="result">Result:</div>
-        <button id="startButton">Start Animation</button>
+<div class="roulette_container">
+    <div class="shadow">
+        <div class="stop_watch_bar"></div>
+    </div>
+    <div class="roulette_wheel">
+        <div class="line"></div>
+        <div class='selector'></div>
+        <div class="wheel"></div>
     </div>
 </div> 
