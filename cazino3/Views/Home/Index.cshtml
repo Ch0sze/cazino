@@ -1,11 +1,21 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>User ID : @ViewData["userID"]</p>
+    @* <p>User ID : @ViewData["userID"]</p>
     <div style="text-align: center;">
-        <img src="../images/445250_72459756.jpg" style="width: 50%; display: block; margin: 0 auto;">
-    </div>
+    </div> *@
 </div>
+
+<div class="roulette_container">
+    <div class="shadow">
+        <div class="stop_watch_bar"></div>
+    </div>
+    <div class="roulette_wheel">
+        <div class="line"></div>
+        <div class='selector'></div>
+        <div class="wheel"></div>
+    </div>
+</div> 
