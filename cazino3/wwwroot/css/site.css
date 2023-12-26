@@ -127,3 +127,41 @@ rect {
     transition-duration: 0.5s;
     transition-property: background-color;
 }
+
+#wallet-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#cash-in-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.token-option {
+    display: inline-block;
+    width: 30%; /* Adjust the width as needed */
+    margin: 10px;
+}
+
+.token-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.buy-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
