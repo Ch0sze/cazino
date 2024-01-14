@@ -1,29 +1,35 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using cazino3.Areas.Identity.Data;
+using cazino3.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using UTB.Eshop.Application.Abstraction;
-using UTB.Eshop.Application.ViewModels;
-using UTB.Eshop.Web.Models;
 
-namespace UTB.Eshop.Web.Controllers
+namespace cazino3.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        IHomeService _homeService;
+        private readonly UserManager<cazinoUser> _userManager;
 
-        public HomeController(ILogger<HomeController> logger, IHomeService homeService)
+        public HomeController(ILogger<HomeController> logger, UserManager<cazinoUser> userManager)
         {
             _logger = logger;
-            _homeService = homeService;
+            this._userManager = userManager;
         }
 
         public IActionResult Index()
         {
-            CarouselProductViewModel viewModel = _homeService.GetHomeIndexViewModel();
-            return View(viewModel);
+            ViewData["UserID"] = _userManager.GetUserId(this.User);
+            return View();
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+        public IActionResult WalletPage()
         {
             return View();
         }

@@ -1,22 +1,167 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    font-family: Roboto,sans-sarif;
+}
+
+/*tab-nav*/
+.login-logout-card .card-header {
+    padding: 0px 0px 12px 0px;
+}
+
+.login-logout-card ul.nav-tabs {
+    margin: 0px 0px -12px 0px;
+}
+
+.login-logout-card li.nav-item {
+    width: 50%;
+}
+
+.login-logout-card a.nav-link {
+    font-size: 1rem;
+    color: #0d6efd;
+    text-align: center;
+    padding: 1rem;
+}
+
+.login-logout-card .card-body {
+    padding: 10px 20px;
+}
+
+.bg-color {
+    background-color: #33BBC5;
+}
+
+.custom-button {
+    background-color: #3D30A2;
+    border-color: #3D30A2;
+    transition: background-color 0.3s ease;
+}
+
+    .custom-button:hover {
+        background-color: #363062; /* Darker color when hovered */
+        border-color: #363062;
+    }
+
+.custom-text {
+    color: #3D30A2;
+}
+
+rect {
+    transition: transform 2s linear; /* Adding transition for smooth movement */
+}
+
+.line {
+    width: 3px;
+    height: 80px;
+    background-color: slategrey;
+    margin: auto; /* Center the div horizontally and vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*WHEEL*/
+.roulette_wheel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+    .roulette_wheel .selector {
+        width: 3px;
+        background: grey;
+        left: 50%;
+        height: 100%;
+        transform: translate(-50%,0%);
+        position: absolute;
+        z-index: 2;
+    }
+
+    .roulette_wheel .wheel {
+        display: flex;
+    }
+            .roulette_wheel .wheel .card {
+                height: 75px;
+                width: 75px;
+                margin: 3px;
+                border-radius: 8px;
+                border-bottom: 3px solid rgba(0,0,0,0.2);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 1.5em;
+            }
+
+.shadow {
+    width: 100%;
+    margin: 0 auto 10px auto;
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+.shadow .stop_watch_bar {
+    width: 100%;
+    height: 8px;
+    margin: 50px 0 50px 0;
+    background-color: #00cc99;
+    border-radius: 5px;
+    transition-duration: 0.5s;
+    transition-property: background-color;
+}
+
+#wallet-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#cash-in-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.token-option {
+    display: inline-block;
+    width: 30%; /* Adjust the width as needed */
+    margin: 10px;
+}
+
+.token-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.buy-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }

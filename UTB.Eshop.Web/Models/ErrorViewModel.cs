@@ -1,4 +1,4 @@
-namespace UTB.Eshop.Web.Models
+namespace cazino3.Models
 {
     public class ErrorViewModel
     {

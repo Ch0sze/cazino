@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using cazino3.Areas.Identity.Data
+
+@inject SignInManager<cazinoUser> SignInManager
+@inject UserManager<cazinoUser> UserManager
+
+<ul class="navbar-nav">
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item">
+            <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Logged as @UserManager.FindByNameAsync(User.Identity.Name).Result.NickName</a>
+    </li>
+    <li class="nav-item">
+        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button id="logout" type="submit" class="btn btn-primary custom-button">Logout</button>
+        </form>
+    </li>
+
+}
+// zobrazí login a register button když user není přihlášený v pravém horním rohu
+@* else
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" id="register" asp-area="identity" asp-page="/account/register">register</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" id="login" asp-area="identity" asp-page="/account/login">login</a>
+    </li>
+} *@
+</ul>

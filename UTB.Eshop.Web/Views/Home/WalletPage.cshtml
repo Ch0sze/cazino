@@ -1,0 +1,98 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using cazino3.Areas.Identity.Data
+
+@inject SignInManager<cazinoUser> SignInManager
+@inject UserManager<cazinoUser> UserManager
+
+@{
+    ViewData["Title"] = "Wallet";
+}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<h1>@ViewData["Title"]</h1>
+<h1>Your balance: @UserManager.FindByNameAsync(User.Identity.Name).Result.WalletBalance</h1>
+
+<h3>Buy tokens!</h3>
+<div id="wallet-container">
+    <div class="token-option">
+        <img src="../images/token_500.png" alt="Token 500" class="token-image">
+        <p>Token Value: 500</p>
+        <p>Price: $5.00</p>
+        <button class="buy-button" onclick="buyTokens(500)">Buy</button>
+    </div>
+
+    <div class="token-option">
+        <img src="../images/token_1000.png" alt="Token 1000" class="token-image">
+        <p>Token Value: 1000</p>
+        <p>Price: $10.00</p>
+        <button class="buy-button" onclick="buyTokens(1000)">Buy</button>
+    </div>
+
+    <div class="token-option">
+        <img src="../images/token_3000.png" alt="Token 3000" class="token-image">
+        <p>Token Value: 3000</p>
+        <p>Price: $30.00</p>
+        <button class="buy-button" onclick="buyTokens(3000)">Buy</button>
+    </div>
+</div>
+<h3>Cash in!</h3>
+<div id="cash-in-container">
+    <div class="token-option">
+        <input type="number" id="cash-in-input" placeholder="Enter amount">
+        <button class="buy-button" onclick="cashIn()">Cash In!</button>
+    </div>
+</div>
+
+
+<script>
+    function buyTokens(tokenValue) {
+        // Use AJAX to call the BuyTokens action in WalletController
+        $.ajax({
+            url: '/Wallet/BuyTokens', // Make sure the URL is correct based on your routing
+            type: 'POST',
+            data: { tokenValue: tokenValue },
+            success: function (result) {
+                if (result.success) {
+                    alert(result.message);
+                    location.reload();
+                    // You can perform additional actions if the purchase is successful
+
+                } else {
+                    alert(result.message);
+
+                    // Handle the case where the purchase was not successful
+                }
+            },
+            error: function () {
+                alert('An error occurred while processing the request.');
+                // Handle the case where an error occurred
+            }
+        });
+    }
+    function cashIn() {
+        // You can implement the logic for cashing in here
+        var cashInAmount = document.getElementById("cash-in-input").value;
+        //alert("Cash In successful! Amount: " + cashInAmount);// Use AJAX to call the BuyTokens action in WalletController
+        $.ajax({
+            url: '/Wallet/CashIn', // Make sure the URL is correct based on your routing
+            type: 'POST',
+            data: { cashInAmount: cashInAmount },
+            success: function (result) {
+                if (result.success) {
+                    alert(result.message);
+                    location.reload();
+                    // You can perform additional actions if the purchase is successful
+
+                } else {
+                    alert(result.message);
+
+                    // Handle the case where the purchase was not successful
+                }
+            },
+            error: function () {
+                alert('An error occurred while processing the request.');
+                // Handle the case where an error occurred
+            }
+        });
+    }
+</script>
