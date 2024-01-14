@@ -1,14 +1,20 @@
 ﻿$(document).ready(function () {
     //setup multiple rows of colours, can also add and remove while spinning but overall this is easier.
-    initWheel();
+    //initWheel();
 
     // Run spinWheel() initially
-    spinWheel(whereToLand());
+    /*spinWheel(whereToLand());*/
 
     // Set interval to run spinWheel() every 15 seconds
-    setInterval(function () {
-        spinWheel(whereToLand());
-    }, 20000);
+    //setInterval(function () {
+    //    spinWheel(whereToLand());
+    //}, 20000);
+
+    const socket = new WebSocket('ws://localhost:8080');
+    socket.addEventListener('message', (event) => {
+        const num = parseInt(event.data);
+        spinWheel(num);
+    });
 });
 
 function whereToLand() {

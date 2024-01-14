@@ -22,8 +22,4 @@
     <ProjectReference Include="..\UTB.Eshop.Domain\UTB.Eshop.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Identity\" />
-  </ItemGroup>
-
 </Project>

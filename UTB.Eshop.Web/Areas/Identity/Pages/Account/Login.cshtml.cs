@@ -11,10 +11,10 @@ using Microsoft.AspNetCore.Authorization;
 using cazino3.Areas.Identity.Data;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-
 
 namespace cazino3.Areas.Identity.Pages.Account
 {
