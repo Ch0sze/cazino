@@ -13,35 +13,37 @@
 
 <h3>Manage Users</h3>
 <h3>&nbsp;</h3>
-
-<div class="d-flex">
-    <!-- Set Admin Box -->
-    <div id="wallet-container" class="admin-box me-3">
-        <div class="admin-option">
-            <label for="setAdminUsername">Set Admin:</label>
-            <div class="d-flex align-items-center">
-                <input type="text" id="setAdminUsername" placeholder="Enter email" class="form-control me-2">
-                <button class="btn btn-primary" onclick="setAdmin()">Set Admin</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Ban User Box -->
-    <div id="wallet-container" class="admin-box">
-        <div class="admin-option">
-            <label for="banUsername">Ban User:</label>
-            <div class="d-flex align-items-center">
-                <input type="text" id="banUsername" placeholder="Enter email" class="form-control me-2">
-                <button class="btn btn-danger" onclick="banUser()">Ban User</button>
+    @if (UserManager.FindByNameAsync(User.Identity.Name).Result.IsAdmin)
+    {
+        <div class="d-flex">
+        <!-- Set Admin Box -->
+        <div id="wallet-container" class="admin-box me-3">
+            <div class="admin-option">
+                <label for="setAdminUsername">Set Admin:</label>
+                <div class="d-flex align-items-center">
+                    <input type="text" id="setAdminUsername" placeholder="Enter email" class="form-control me-2">
+                    <button class="btn btn-primary" onclick="setAdmin()">Set Admin</button>
+                </div>
             </div>
         </div>
 
-        <div class="admin-option">
-            <label for="banReason">Ban Reason:</label>
-            <textarea id="banReason" placeholder="Enter ban reason" class="form-control"></textarea>
+        <!-- Ban User Box -->
+        <div id="wallet-container" class="admin-box">
+            <div class="admin-option">
+                <label for="banUsername">Ban User:</label>
+                <div class="d-flex align-items-center">
+                    <input type="text" id="banUsername" placeholder="Enter email" class="form-control me-2">
+                    <button class="btn btn-danger" onclick="banUser()">Ban User</button>
+                </div>
+            </div>
+
+            <div class="admin-option">
+                <label for="banReason">Ban Reason:</label>
+                <textarea id="banReason" placeholder="Enter ban reason" class="form-control"></textarea>
+            </div>
         </div>
     </div>
-</div>
+    }
 
 
 <script>
