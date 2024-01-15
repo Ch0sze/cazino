@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     //setup multiple rows of colours, can also add and remove while spinning but overall this is easier.
-    //initWheel();
+    initWheel();
 
     // Run spinWheel() initially
     /*spinWheel(whereToLand());*/
@@ -21,7 +21,9 @@ function whereToLand() {
     var roll = Math.floor(Math.random() * 25) + 1;
     return roll;
 }
-var x2 = '#e6b800'
+
+
+var x2 = '#eb8600'
     , x3 = 'green'
     , x5 = 'blue'
     , x8 = 'purple'
@@ -114,4 +116,17 @@ function shrinkLine() {
     }
 
     requestAnimationFrame(animate); // Start the animation
+}
+
+function bet() {
+    var betSize = parseFloat(document.getElementById("betInput").value);
+    console.log(betSize);
+    //if (money < betSize || !betSize) return;
+
+    //if (colors == "#eb8600") {
+    //    money -= betSize;
+    //    bets[0] += betSize;
+    //    var element = `<div class="betText"><span class="name">YOU</span>${betSize.toLocaleString()}</div>`
+    //    $(element).appendTo($(btn).parent()).slideUp(1).slideDown(1000);
+    //}
 }

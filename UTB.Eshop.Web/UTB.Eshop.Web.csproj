@@ -36,6 +36,7 @@
     <None Include="Areas\Identity\Pages\_ValidationScriptsPartial.cshtml" />
     <None Include="Areas\Identity\Pages\_ViewImports.cshtml" />
     <None Include="Areas\Identity\Pages\_ViewStart.cshtml" />
+    <None Include="wwwroot\img\token_1000.png" />
   </ItemGroup>
 
 </Project>

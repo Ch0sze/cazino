@@ -1,7 +1,16 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<header>
+    <link rel="stylesheet" href="~/css/betting.css" />
+</header>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script>
+    function validateInput(input) {
+        input.value = input.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+    }
+</script>
 
 <div class="text-center">
     @* <p>User ID : @ViewData["userID"]</p>
@@ -19,3 +28,31 @@
         <div class="wheel"></div>
     </div>
 </div> 
+
+<div class="wager-container justify-content-center">
+    <a>Wager:</a>
+    <input type="number" oninput="validateInput(this)" id="betInput">
+</div>
+
+<div class="betting_container">
+    <div class="bet">
+        <button class="betBtn yellowBtn" onclick='bet("y",this);'>Yellow</button>
+        <div class="background" ></div>
+    </div>
+    <div class="bet">
+        <button class="betBtn greenBtn" onclick='bet("g",this);'>Green</button>
+        <div class="background"></div>
+    </div>
+    <div class="bet">
+        <button class="betBtn redBtn" onclick='bet("r",this);'>Red</button>
+        <div class="background"></div>
+    </div>
+    <div class="bet">
+        <button class="betBtn blueBtn" onclick='bet("b",this);'>Blue</button>
+        <div class="background"></div>
+    </div>
+    <div class="bet">
+        <button class="betBtn purpleBtn" onclick='bet("p",this);'>Purple</button>
+        <div class="background"></div>
+    </div>
+</div>
