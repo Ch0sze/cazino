@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using cazino3.Areas.Identity.Data;
+using UTB.Eshop.Application.Abstractions;
+using UTB.Eshop.Application.Implementation;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DBcazinoContextConnection") ?? throw new InvalidOperationException("Connection string 'DBcazinoContextConnection' not found.");
@@ -13,6 +15,8 @@ builder.Services.AddDefaultIdentity<cazinoUser>(options => options.SignIn.Requir
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IBalanceService, BalanceService>();
 
 builder.Services.AddRazorPages();
 

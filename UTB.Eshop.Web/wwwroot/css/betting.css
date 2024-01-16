@@ -98,38 +98,49 @@ input {
     border-radius: 10px;
 }
 
-.betText {
-    width: 100%;
-    border: 1px solid black;
-    margin: 1px;
-    position: relative;
-    display: block;
-    padding: 8px 15px;
-    background-color: #ebebeb;
-}
-
 .name {
     display: inline-block;
     width: 250px;
 }
 
 .yellowBtn {
-    background: rgb(230, 230, 0);
+    background: rgb(235, 221, 35);
 }
 
 .greenBtn {
-    background: rgb(64, 212, 79)
+    background: rgb(64, 212, 79);
 }
 
 .blueBtn {
-    background: rgb(28, 137, 217)
+    background: rgb(28, 137, 217);
 }
 
 
 .purpleBtn {
-    background: rgb(153, 51, 255)
+    background: rgb(153, 51, 255);
 }
 
 .redBtn {
-    background: rgb(212, 64, 64)
+    background: rgb(212, 64, 64);
+}
+
+.betText {
+    position: relative;
+    background-color: rgb(179, 179, 179);
+    top: 20px;
+    padding: 7px;
+    color: white;
+    font-size: 15px;
+    border-bottom: solid 1px lightgrey;
+    margin-left:5px;
+    margin-right:5px;
+}
+
+.betText .spacing {
+    margin-right: 70px;
+}
+@media (max-width: 800px) {
+    .betText .spacing {
+        margin-right: 210px;
+    }
 }
