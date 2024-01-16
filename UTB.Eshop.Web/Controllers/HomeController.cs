@@ -37,6 +37,10 @@ namespace cazino3.Controllers
         {
             return View();
         }
+        public IActionResult HistoryPage()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

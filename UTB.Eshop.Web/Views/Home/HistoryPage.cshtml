@@ -1,0 +1,66 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using cazino3.Areas.Identity.Data
+
+@inject SignInManager<cazinoUser> SignInManager
+@inject UserManager<cazinoUser> UserManager
+
+@{
+    ViewData["Title"] = "History";
+}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<h1>@ViewData["Title"]</h1>
+
+<h3>Your Cash-ins:</h3>
+
+<div id="cash-ins-container" class="d-flex flex-column">
+    <!-- Cash-ins will be dynamically loaded here -->
+</div>
+
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        loadCashIns();
+    });
+
+    function loadCashIns() {
+        $.ajax({
+            url: '/Wallet/GetCashIns', // Modify the URL based on your controller action
+            type: 'GET',
+            success: function (cashIns) {
+                // Clear existing content
+                $('#cash-ins-container').empty();
+
+                // Append new cash-ins
+                cashIns.forEach(function (cashIn) {
+                    // Create a container for each cash-in with styling
+                    var cashInContainer = $('<div class="cashin-container d-flex flex-row mb-2">');
+                    cashInContainer.css({
+                        'text-align': 'center',
+                        'background-color': '#fff',
+                        'padding': '10px', // Adjust padding as needed
+                        'border-radius': '10px',
+                        'box-shadow': '0 0 10px rgba(0, 0, 0, 0.1)'
+                    });
+
+                    // Bold text for "Cash-in Amount"
+                    cashInContainer.append('<p class="me-2"><strong>Cash-in Amount:</strong> ' + cashIn.amount + '</p>');
+
+                    // Parse and format the date
+                    var formattedDate = new Date(cashIn.date).toLocaleString();
+
+                    // Bold text for "Date"
+                    cashInContainer.append('<p><strong>Date:</strong> ' + formattedDate + '</p>');
+
+                    // Append the container to the main container
+                    $('#cash-ins-container').append(cashInContainer);
+                });
+            },
+            error: function () {
+                alert('An error occurred while loading cash-ins.');
+            }
+        });
+    }
+</script>

@@ -8,8 +8,12 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/UTB.Eshop.Web.styles.css" asp-append-version="true" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Add the styles for the background images -->
 </head>
 <body>
+
+
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-color border-bottom box-shadow mb-3">
             <div class="container">
@@ -32,6 +36,9 @@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
+            <!-- Background Images -->
+            <img src="../../img/candy_left.png" alt="Candy Left" class="candy-left">
+            <img src="../../img/candy_right.png" alt="Candy Right" class="candy-right">
         </main>
     </div>
 

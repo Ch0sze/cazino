@@ -36,13 +36,11 @@
     </div>
 </div>
 <h3>Cash in!</h3>
-<div id="cash-in-container">
-    <div class="token-option">
-        <input type="number" id="cash-in-input" placeholder="Enter amount">
-        <button class="buy-button" onclick="cashIn()">Cash In!</button>
-    </div>
+<div id="cash-in-container" class="d-flex justify-content-center">
+    <input type="number" id="cash-in-input" placeholder="Enter amount" class="me-3">
+    <button class="buy-button me-2" onclick="cashIn()">Cash In!</button>
+    <button id="history" type="submit" class="buy-button me-2"onclick="history()">History</button>
 </div>
-
 
 <script>
     function buyTokens(tokenValue) {
@@ -94,5 +92,9 @@
                 // Handle the case where an error occurred
             }
         });
+    }
+    function history() {
+        // Redirect to WalletPage
+        window.location.href = '../Home/HistoryPage'; // Adjust the URL based on your routing
     }
 </script>
