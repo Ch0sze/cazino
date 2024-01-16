@@ -1,0 +1,19 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using cazino3.Areas.Identity.Data
+
+@inject SignInManager<cazinoUser> SignInManager
+@inject UserManager<cazinoUser> UserManager
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        @if (UserManager.FindByNameAsync(User.Identity.Name).Result.IsAdmin)
+        {
+            <li class="nav-item">
+                <form id="walletForm" class="form-inline" asp-area="" asp-controller="Home" asp-action="AdminPage">
+                <button id="admin" type="submit" class="btn btn-primary custom-button">Admin</button>
+            </form>
+        </li>
+        }
+
+    }

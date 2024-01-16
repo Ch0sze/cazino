@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -37,5 +38,22 @@ public class cazinoUser : IdentityUser
     [Required]
     [Column(TypeName = "DECIMAL(20, 0)DEFAULT 0")]
     public int WalletBalance { get; set; }
+
+    [PersonalData]
+    [Required]
+    [Column(TypeName = "BIT")]
+    [DefaultValue(false)]
+    public bool IsAdmin { get; set; }
+
+    [PersonalData]
+    [Required]
+    [Column(TypeName = "BIT")]
+    [DefaultValue(false)]
+    public bool IsBanned { get; set; }
+
+    [PersonalData]
+    [Column(TypeName = "nvarchar(100)")]
+    public string? BanReason { get; set; }
+
 }
 

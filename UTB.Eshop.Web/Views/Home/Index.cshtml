@@ -1,6 +1,14 @@
-﻿@{
+﻿
+@using Microsoft.AspNetCore.Identity
+@using cazino3.Areas.Identity.Data
+
+@inject SignInManager<cazinoUser> SignInManager
+@inject UserManager<cazinoUser> UserManager
+
+@{
     ViewData["Title"] = "Home Page";
 }
+
 <header>
     <link rel="stylesheet" href="~/css/betting.css" />
 </header>
@@ -17,8 +25,9 @@
     <div style="text-align: center;">
     </div> *@
 </div>
-
-<div class="roulette_container">
+@if (!UserManager.FindByNameAsync(User.Identity.Name).Result.IsBanned)
+{
+    <div class="roulette_container">
     <div class="shadow">
         <div class="stop_watch_bar"></div>
     </div>
@@ -56,3 +65,16 @@
         <div class="background"></div>
     </div>
 </div>
+}
+else {
+    <div style="font-size: 48px; color: red; text-align: center;">
+    You have been banned!
+    </div>
+    <div style="font-size: 20px; text-align: center;">
+        Reason: 
+        @UserManager.FindByNameAsync(User.Identity.Name).Result.BanReason
+        
+    </div>
+
+
+}

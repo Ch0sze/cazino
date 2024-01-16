@@ -6,10 +6,14 @@
     <title>@ViewData["Title"] - cazino</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/cazino3.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/UTB.Eshop.Web.styles.css" asp-append-version="true" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Add the styles for the background images -->
 </head>
 <body>
+
+
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-color border-bottom box-shadow mb-3">
             <div class="container">
@@ -19,16 +23,12 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    @* <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul> *@
-                    <partial name="_LoginPartial.cshtml" />
-                    <partial name="_Wallet.cshtml" />
+                    <div class="d-flex align-items-center">
+                        <!-- Add this container for padding -->
+                        <partial name="_LoginPartial.cshtml" class="me-3" /> <!-- Add margin to the right -->
+                        <partial name="_Wallet.cshtml" class="me-3" /> &nbsp;&nbsp;<!-- Add margin to the right -->
+                        <partial name="_Admin.cshtml" class="me-3" /> <!-- Add margin to the right -->
+                    </div>
                 </div>
             </div>
         </nav>
@@ -36,6 +36,9 @@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
+            <!-- Background Images -->
+            <img src="../../img/candy_left.png" alt="Candy Left" class="candy-left">
+            <img src="../../img/candy_right.png" alt="Candy Right" class="candy-right">
         </main>
     </div>
 
