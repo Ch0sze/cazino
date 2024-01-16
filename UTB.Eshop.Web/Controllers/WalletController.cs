@@ -60,5 +60,27 @@ namespace cazino3.Controllers
             // Return an error message if the user is not found
             return Json(new { success = false, message = "User not found." });
         }
+        [HttpPost]
+        public async Task<IActionResult> UpdateBalance(int newBalance)
+        {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            if (user != null)
+            {
+                // Update the user's balance
+                user.WalletBalance = newBalance;
+
+                // Save the changes to the database
+                await _userManager.UpdateAsync(user);
+
+                // You can return a success message or other relevant data
+                return Json(new { success = true, message = "Balance updated successfully!" });
+            }
+
+            // Return an error message if the user is not found
+            return Json(new { success = false, message = "User not found." });
+        }
+
+        
     }
 }

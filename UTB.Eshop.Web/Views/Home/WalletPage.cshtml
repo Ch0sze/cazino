@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using cazino3.Areas.Identity.Data
-
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 @inject SignInManager<cazinoUser> SignInManager
 @inject UserManager<cazinoUser> UserManager
 
@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <h1>@ViewData["Title"]</h1>
-<h1>Your balance: @UserManager.FindByNameAsync(User.Identity.Name).Result.WalletBalance</h1>
+<h1 id="balance">Your balance: @UserManager.FindByNameAsync(User.Identity.Name).Result.WalletBalance</h1>
 
 <h3>Buy tokens!</h3>
 <div id="wallet-container">
