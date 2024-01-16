@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 using UTB.Eshop.Application.Abstractions;
 
 namespace UTB.Eshop.Web.Controllers
 {
-    // YourProject.Presentation/Controllers/BalanceController.cs
-
     [Route("api/balance")]
     public class BalanceController : Controller
     {
@@ -12,7 +12,7 @@ namespace UTB.Eshop.Web.Controllers
 
         public BalanceController(IBalanceService balanceService)
         {
-            _balanceService = balanceService;
+            _balanceService = balanceService ?? throw new ArgumentNullException(nameof(balanceService));
         }
 
         [HttpGet]
@@ -20,13 +20,8 @@ namespace UTB.Eshop.Web.Controllers
         {
             try
             {
-                // Retrieve the authenticated user's name (assuming you have authentication set up)
                 var userName = User.Identity.Name;
-
-                // Use the service to get the balance
                 var balance = await _balanceService.GetBalanceAsync(userName);
-
-                // Return the balance as JSON
                 return Json(new { balance });
             }
             catch (Exception ex)
@@ -36,5 +31,4 @@ namespace UTB.Eshop.Web.Controllers
             }
         }
     }
-
 }
