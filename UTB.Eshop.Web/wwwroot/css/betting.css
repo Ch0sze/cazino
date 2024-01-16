@@ -46,9 +46,10 @@ input[type="number"]::-ms-updown {
 
 }
 input {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     margin: 25px;
     justify-content: center;
-    background: rgb(179, 179, 179);
+    background-color: #f9e6ff;
     clear: both;
     border: none;
     outline: none;
@@ -57,7 +58,7 @@ input {
     width: 250px;
     height: 35px;
     border-radius: 10px;
-    color: white;
+    color: black;
 }
 
 .betting_container {
@@ -82,10 +83,11 @@ input {
 }
 
 .background {
-    background-color: rgb(179, 179, 179);
+    background-color: #f9e6ff;
     height: 350px;
     margin-top: -20px;
     border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .betBtn {
@@ -126,14 +128,14 @@ input {
 
 .betText {
     position: relative;
-    background-color: rgb(179, 179, 179);
+    background-color: #f9e6ff;
     top: 20px;
     padding: 7px;
-    color: white;
+    color: black;
     font-size: 15px;
     border-bottom: solid 1px lightgrey;
-    margin-left:5px;
-    margin-right:5px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .betText .spacing {
